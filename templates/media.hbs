@@ -1,6 +1,6 @@
-<div class="media-inner component-inner" role="region" aria-label="{{_globals._components._media.ariaRegion}} {{#if _media.transcriptLink}}{{_globals._components._media.transcriptButton}}{{/if}}" {{#if _globals._components._media.ariaRegion}}tabindex="0"{{/if}}>
+<div class="media__inner component__inner" role="region" aria-label="{{_globals._components._media.ariaRegion}} {{#if _media.transcriptLink}}{{_globals._components._media.transcriptButton}}{{/if}}" {{#if _globals._components._media.ariaRegion}}tabindex="0"{{/if}}>
     {{> component this}}
-    <div class="media-widget component-widget a11y-ignore-aria">
+    <div class="media__widget component__widget a11y-ignore-aria">
 
     {{#if _media.mp3}}
       <audio src="{{_media.mp3}}" type="audio/mp3" style="width: 100%; height: 100%;"/>
@@ -8,6 +8,7 @@
       {{#if _media.ogg}}
         <audio src="{{_media.ogg}}" type="audio/ogg" style="width: 100%; height: 100%;"/>
       {{else}}
+      {{!-- should width/height be configurable? --}}
         <video preload="none" width="640" height="360" {{#if _playsinline}}playsinline{{/if}} {{#if_value_equals _media.type "video/vimeo"}}{{else}}poster="{{_media.poster}}"{{/if_value_equals}} style="width:100%; height:100%;" controls="controls">
           {{#if _media.source}}
             <source src="{{_media.source}}" type="{{_media.type}}"/>
@@ -32,12 +33,12 @@
     {{/if}}
     </div>
     {{#if _transcript}}
-    <div class="media-transcript-container">
+    <div class="media__transcript-container">
 
-      <div class="media-transcript-button-container">
+      <div class="media__transcript-button-container">
         {{#if _transcript._inlineTranscript}}
-          <button class="media-inline-transcript-button button" role="button">
-            <div class="transcript-text-container">
+          <button class="btn-text media__inline-transcript-button js-media-inline-transcript-button" role="button">
+            <div class="media__transcript-text-container">
               {{#if _transcript.inlineTranscriptButton}}
                 {{_transcript.inlineTranscriptButton}}
               {{else}}
@@ -47,8 +48,8 @@
           </button>
         {{/if}}
         {{#if _transcript._externalTranscript}}
-          <button onclick="window.open('{{_transcript.transcriptLink}}')" class="media-external-transcript-button button" role="button">
-            <div class="transcript-text-container">
+          <button onclick="window.open('{{_transcript.transcriptLink}}')" class="btn-text media__external-transcript-button js-media-external-transcript-button" role="button">
+            <div class="media__transcript-text-container">
               {{#if _transcript.transcriptLinkButton}}
                 {{_transcript.transcriptLinkButton}}
               {{else}}
@@ -60,8 +61,8 @@
         </div>
 
         {{#if _transcript._inlineTranscript}}
-          <div class="media-inline-transcript-body-container">
-            <div class="media-inline-transcript-body">
+          <div class="media__inline-transcript-body-container">
+            <div class="media__inline-transcript-body">
             {{{a11y_text _transcript.inlineTranscriptBody}}}
             </div>
           </div>
@@ -69,5 +70,5 @@
 
     </div>
     {{/if}}
-    
+
 </div>

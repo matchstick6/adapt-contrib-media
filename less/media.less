@@ -1,23 +1,23 @@
 .media-component {
 
     .me-plugin {
-        position:relative;
-        width:100%;
-        height:100% !important;
+        position: relative;
+        width: 100%;
+        height: 100% !important;
         object {
-            height: 100% !important;
             width: 100% !important;
+            height: 100% !important;
         }
         embed {
-            height: 100% !important;
             width: 100% !important;
+            height: 100% !important;
         }
     }
 
-    .media-widget.video-vimeo {
+    &__widget.video-vimeo {
         .mejs-controls {
             display: none !important;
-            height: 0px !important;
+            height: 0 !important;
         }
         .mejs-overlay-play {
             display: none !important;
@@ -27,16 +27,16 @@
     .mejs-container {
         background-color: transparent;
         .mejs-controls .mejs-time {
-            padding-right:1px;
-            padding-left:1px;
+            padding-right: 1px;
+            padding-left: 1px;
         }
     }
 
     .external-source {
         .mejs-container {
             position: relative;
-            padding-top: 35px;
             height: 0;
+            padding-top: 35px;
             overflow: hidden;
         }
         .mejs-container iframe {
@@ -51,36 +51,25 @@
         }
     }
 
-    .media-transcript {
-        padding: @button-padding;
-        display: block;
-        color: @button-text-color;
-        background-color: @button-color;
-        text-decoration: none;
-        &:hover {
-            color: @button-text-color-hover;
-            background-color: @button-color-hover;
-        }
-    }
-
-    .media-inline-transcript-body-container {
+    &__inline-transcript-body-container {
         margin-top: 10px;
         display: none;
     }
 
-    .media-inline-transcript-body {
-        padding: @component-padding;
+    &__inline-transcript-body {
+        padding: @item-padding;
     }
 
-    .media-transcript-button-container {
-        padding:1px;
+    &__transcript-button-container {
+        padding: 1px;
     }
 
-    .media-external-transcript-button, .media-inline-transcript-button {
-        width:100%;
-        display:block;
+    &__external-transcript-button,
+    &__inline-transcript-button {
+        width: 100%;
+        display: block;
     }
-    
+
     // Bug Fix for touch devices to override standard hover event in mep.less L119
     // ==============================
     .mejs-overlay {
@@ -133,7 +122,7 @@
             background-image: url(assets/controls.svg);
         }
     }
-    
+
     .accessibility.no-touch & {
         .mejs-controls .mejs-button {
             button:focus {
@@ -152,7 +141,7 @@
         background-color: black;
     }
 
-    // Bug fix for missing control icons on iOS touch devices 
+    // Bug fix for missing control icons on iOS touch devices
     // ==============================
     .mejs-offscreen {
         -webkit-clip-path: polygon(0px 0px, 0px 0px,0px 0px, 0px 0px); // required for Safari/Chrome iOS 11. Ref: https://caniuse.com/#feat=css-clip-path

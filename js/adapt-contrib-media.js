@@ -32,8 +32,8 @@ define([
     var Media = ComponentView.extend({
 
         events: {
-            "click .media-inline-transcript-button": "onToggleInlineTranscript",
-            "click .media-external-transcript-button": "onExternalTranscriptClicked"
+            "click .js-media-inline-transcript-button": "onToggleInlineTranscript",
+            "click .js-media-external-transcript-button": "onExternalTranscriptClicked"
         },
 
         preRender: function() {
@@ -120,7 +120,7 @@ define([
                 // We're streaming - set ready now, as success won't be called above
                 try {
                     if (this.model.get('_media').source) {
-                        this.$('.media-widget').addClass('external-source');
+                        this.$('.media__widget').addClass('external-source');
                     }
                 } catch (e) {
                     console.log("ERROR! No _media property found in components.json for component " + this.model.get('_id'));
@@ -134,7 +134,7 @@ define([
             var media = this.model.get("_media");
             if (media && media.type) {
                 var typeClass = media.type.replace(/\//, "-");
-                this.$(".media-widget").addClass(typeClass);
+                this.$(".media__widget").addClass(typeClass);
             }
         },
 
@@ -167,7 +167,7 @@ define([
             this.completionEvent = (!this.model.get('_setCompletionOn')) ? 'play' : this.model.get('_setCompletionOn');
 
             if (this.completionEvent === 'inview') {
-                this.$('.component-widget').on('inview', _.bind(this.inview, this));
+                this.$('.component__widget').on('inview', _.bind(this.inview, this));
             }
 
             // wrapper to check if preventForwardScrubbing is turned on.
@@ -177,12 +177,12 @@ define([
                     'timeupdate': this.onMediaElementTimeUpdate
                 });
             }
-            
-            // handle other completion events in the event Listeners 
+
+            // handle other completion events in the event Listeners
             $(this.mediaElement).on({
-            	'play': this.onMediaElementPlay,
-            	'pause': this.onMediaElementPause,
-            	'ended': this.onMediaElementEnded
+                'play': this.onMediaElementPlay,
+                'pause': this.onMediaElementPause,
+                'ended': this.onMediaElementEnded
             });
         },
 
@@ -194,7 +194,7 @@ define([
                 '_isMediaPlaying': true,
                 '_isMediaEnded': false
             });
-            
+
             if (this.completionEvent === 'play') {
                 this.setCompletionStatus();
             }
@@ -211,7 +211,7 @@ define([
                 this.setCompletionStatus();
             }
         },
-        
+
         onMediaElementSeeking: function(event) {
             var maxViewed = this.model.get("_maxViewed");
             if(!maxViewed) {
@@ -254,7 +254,7 @@ define([
             // pause on player click
             this.$('.mejs-mediaelement').on("click", this.onMediaElementClick);
         },
-        
+
         onMediaStop: function(view) {
 
             // Make sure this view isn't triggering media:stop
@@ -262,7 +262,7 @@ define([
 
             var player = this.mediaElement.player;
             if (!player) return;
-            
+
             player.pause();
         },
 
@@ -302,7 +302,7 @@ define([
                 }
 
                 if (this._isVisibleTop && this._isVisibleBottom) {
-                    this.$('.component-inner').off('inview');
+                    this.$('.component__inner').off('inview');
                     this.setCompletionStatus();
                 }
             }
@@ -353,7 +353,7 @@ define([
 
         onDeviceChanged: function() {
             if (this.model.get('_media').source) {
-                this.$('.mejs-container').width(this.$('.component-widget').width());
+                this.$('.mejs-container').width(this.$('.component__widget').width());
             }
         },
 
@@ -389,7 +389,7 @@ define([
         },
 
         onScreenSizeChanged: function() {
-            this.$('audio, video').width(this.$('.component-widget').width());
+            this.$('audio, video').width(this.$('.component__widget').width());
         },
 
         onAccessibilityToggle: function() {
@@ -398,8 +398,8 @@ define([
 
         onToggleInlineTranscript: function(event) {
             if (event) event.preventDefault();
-            var $transcriptBodyContainer = this.$(".media-inline-transcript-body-container");
-            var $button = this.$(".media-inline-transcript-button");
+            var $transcriptBodyContainer = this.$(".media__inline-transcript-body-container");
+            var $button = this.$(".media__inline-transcript-button");
 
             if ($transcriptBodyContainer.hasClass("inline-transcript-open")) {
                 $transcriptBodyContainer.stop(true,true).slideUp(function() {
