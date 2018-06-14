@@ -120,7 +120,7 @@ define([
         // We're streaming - set ready now, as success won't be called above
         try {
           if (this.model.get('_media').source) {
-            this.$('.media__widget').addClass('external-source');
+            this.$('.m-media__widget').addClass('external-source');
           }
         } catch (e) {
           console.log("ERROR! No _media property found in components.json for component " + this.model.get('_id'));
@@ -134,7 +134,7 @@ define([
       var media = this.model.get("_media");
       if (media && media.type) {
         var typeClass = media.type.replace(/\//, "-");
-        this.$(".media__widget").addClass(typeClass);
+        this.$(".m-media__widget").addClass(typeClass);
       }
     },
 
@@ -397,8 +397,8 @@ define([
 
     onToggleInlineTranscript: function(event) {
       if (event) event.preventDefault();
-      var $transcriptBodyContainer = this.$(".media__inline-transcript-body-container");
-      var $button = this.$(".media__inline-transcript-button");
+      var $transcriptBodyContainer = this.$(".m-media__inline-transcript-body-container");
+      var $button = this.$(".m-media__inline-transcript-button");
 
       if ($transcriptBodyContainer.hasClass("inline-transcript-open")) {
         $transcriptBodyContainer.stop(true,true).slideUp(function() {
