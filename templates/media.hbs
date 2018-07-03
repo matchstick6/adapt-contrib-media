@@ -44,7 +44,7 @@
     <div class="m-media__transcript-button-container">
 
       {{#if _transcript._inlineTranscript}}
-      <button class="btn-text m-media__inline-transcript-button js-media-inline-transcript-button" role="button">
+      <button class="btn-text m-media__inline-transcript-button js-media-inline-transcript-button">
         <div class="m-media__transcript-text-container">
           {{#if _transcript.inlineTranscriptButton}}
           {{_transcript.inlineTranscriptButton}}
@@ -56,7 +56,7 @@
       {{/if}}
 
       {{#if _transcript._externalTranscript}}
-      <button onclick="window.open('{{_transcript.transcriptLink}}')" class="btn-text m-media__external-transcript-button js-media-external-transcript-button" role="button">
+      <button onclick="window.open('{{_transcript.transcriptLink}}')" class="btn-text m-media__external-transcript-button js-media-external-transcript-button">
         <div class="m-media__transcript-text-container">
           {{#if _transcript.transcriptLinkButton}}
           {{_transcript.transcriptLinkButton}}
