@@ -70,6 +70,24 @@
           "validators": [],
           "help": "Link to a WEBM video"
         },
+        "lowq": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Low Quality Source",
+          "inputType": "Asset:video",
+          "validators": [],
+          "help": "Link to a low Quality video source"
+        },
+        "midq": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Mid Quality Source",
+          "inputType": "Asset:video",
+          "validators": [],
+          "help": "Link to a Mid Quality video source"
+        },
         "mp3": {
           "type": "string",
           "required": false,
