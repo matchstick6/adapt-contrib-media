@@ -3,6 +3,7 @@ define([
     'core/js/views/componentView',
     'core/js/models/componentModel',
     'libraries/mediaelement-and-player',
+    'libraries/quality',
     'libraries/mediaelement-fullscreen-hook'
 ], function(Adapt, ComponentView, ComponentModel) {
 
