@@ -208,6 +208,14 @@
       "inputType": "Checkbox",
       "validators": []
     },
+    "_qualitySources": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Multiple Quality Sources",
+      "inputType": "Checkbox",
+      "validators": []
+    },
     "_pauseWhenOffScreen": {
       "type": "boolean",
       "required": false,
