@@ -115,6 +115,9 @@ define([
                 if (this.model.get("_allowFullScreen")) {
                     modelOptions.features.push('fullscreen');
                 }
+                if (this.model.get("_qualitySources")){
+                    modelOptions.features.push('quality');
+                }
                 if (this.model.get('_showVolumeControl')) {
                     modelOptions.features.push('volume');
                 }
